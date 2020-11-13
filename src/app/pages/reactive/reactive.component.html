@@ -64,7 +64,8 @@
         <input type="text"
                class="form-control"
                placeholder="Distrito"
-               formControlName="distrito">
+               formControlName="distrito"
+               [class.is-invalid]="distritoNoValido">
 
       </div>
 
@@ -73,7 +74,8 @@
         <input type="text"
                class="form-control"
                placeholder="Ciudad"
-               formControlName="ciudad">
+               formControlName="ciudad"
+               [class.is-invalid]="ciudadNoValido">
 
       </div>
 
