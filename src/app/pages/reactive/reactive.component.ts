@@ -13,6 +13,7 @@ export class ReactiveComponent implements OnInit {
   constructor( private fb: FormBuilder ) { 
 
     this.crearFormulario();
+    this.cargarDataFormulario();
 
   }
 
@@ -55,6 +56,18 @@ export class ReactiveComponent implements OnInit {
     });
       
   }
+  cargarDataFormulario(){
+    //this.forma.setValue({
+      this.forma.reset({
+      nombre: "josee",
+      apellido: "Cortes",
+      correo: "jose@gmail.com",
+      direccion: {
+        distrito: "Ontario",
+        ciudad: "ontawa"
+      }
+    });
+  }
 
   guardar(){
     console.log(this.forma);
@@ -71,7 +84,12 @@ export class ReactiveComponent implements OnInit {
         
       });
     }
+        //Posteo de informacion
+      this.forma.reset({
+    
+      });
   }
+  
   
   
   
