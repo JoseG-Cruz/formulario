@@ -33,6 +33,10 @@ export class ReactiveComponent implements OnInit {
   get apellidoNoValido(){
     return this.forma.get('apellido').invalid && this.forma.get('apellido').touched
   }
+  
+  get usuarioNoValido(){
+    return this.forma.get('usuario').invalid && this.forma.get('usuario').touched
+  }
 
   get correoNoValido(){
     return this.forma.get('correo').invalid && this.forma.get('correo').touched
@@ -64,6 +68,7 @@ export class ReactiveComponent implements OnInit {
     this.forma= this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(5) ]],
       apellido: ['', [Validators.required, this.validadores.noHerrera]],
+      usuario: ['', , this.validadores.existeUsuario],
       correo: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       pass1: ['', Validators.required],
       pass2: ['', Validators.required],
@@ -85,6 +90,8 @@ export class ReactiveComponent implements OnInit {
       nombre: "josee",
       apellido: "Cortes",
       correo: "jose@gmail.com",
+      pass1: '123',
+      pass2: '123',
       direccion: {
         distrito: "Ontario",
         ciudad: "ontawa"
