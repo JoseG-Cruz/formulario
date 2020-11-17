@@ -16,6 +16,7 @@ export class ReactiveComponent implements OnInit {
 
     this.crearFormulario();
     this.cargarDataFormulario();
+    this.crearListenners();
 
   }
 
@@ -84,6 +85,16 @@ export class ReactiveComponent implements OnInit {
     });
       
   }
+
+  crearListenners(){
+    //this.forma.valueChanges.subscribe(valor =>{
+      //console.log(valor);
+    //});
+
+    //this.forma.statusChanges.subscribe(status => console.log({ status }));
+    this.forma.get('nombre').valueChanges.subscribe(console.log);
+  }
+
   cargarDataFormulario(){
     //this.forma.setValue({
       this.forma.reset({
